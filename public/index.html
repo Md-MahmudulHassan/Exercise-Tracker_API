@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exercise Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>Exercise Tracker API</h1>
+
+<div id="Container">
+<section id="createUserSection">
+  <h2>Create New User</h2>
+  <p> <b>API Endpoint:</b> POST /api/users</p>
+  <label for="newUsername">Username</label>
+  <input type="text" id="newUsername" placeholder="Enter username" />
+  <button id="createUserBtn">Create User</button>
+  <pre id="createUserResult"></pre>
+</section>
+
+<section id="listUsersSection">
+  <h2>All Users</h2>
+    <p> <b>API Endpoint:</b> GET /api/users</p>
+  <button id="listUsersBtn">Load Users</button>
+  <pre id="listUsersResult">No users loaded yet.</pre>
+</section>
+
+<section id="addExerciseSection">
+  <h2>Add Exercise</h2>
+    <p> <b>API Endpoint:</b> POST /api/users/:_id/exercises</p>
+  <label for="exerciseUserId">User ID</label>
+  <input type="text" id="exerciseUserId" placeholder="User _id" />
+
+  <label for="exerciseDescription">Description</label>
+  <input type="text" id="exerciseDescription" placeholder="Running, Swimming, etc." />
+
+  <label for="exerciseDuration">Duration (minutes)</label>
+  <input type="number" id="exerciseDuration" placeholder="Duration in minutes" />
+
+  <label for="exerciseDate">Date (optional)</label>
+  <input type="date" id="exerciseDate" />
+
+  <button id="addExerciseBtn">Add Exercise</button>
+  <pre id="addExerciseResult"></pre>
+</section>
+
+<section id="getLogsSection">
+  <h2>Get User Logs</h2>
+    <p> <b>API Endpoint:</b> GET /api/users/:_id/logs</p>
+  <label for="logUserId">User ID</label>
+  <input type="text" id="logUserId" placeholder="User _id" />
+
+  <label for="logFrom">From Date (optional)</label>
+  <input type="date" id="logFrom" />
+
+  <label for="logTo">To Date (optional)</label>
+  <input type="date" id="logTo" />
+
+  <label for="logLimit">Limit (optional)</label>
+  <input type="number" id="logLimit" placeholder="Max number of results" min="1" />
+
+  <button id="getLogsBtn">Get Logs</button>
+  <pre id="getLogsResult"></pre>
+</section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

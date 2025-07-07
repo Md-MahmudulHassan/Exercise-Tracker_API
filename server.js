@@ -7,11 +7,12 @@ const app = express();
 
 // Middleware
 app.use(cors());
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB (local or Atlas)
-mongoose.connect('mongodb://127.0.0.1:27017/exercise-tracker');
+mongoose.connect('mongodb+srv://mahmudul_hassan:mahmudul_hassan@cluster0.30bz1ac.mongodb.net/exercise-tracker');
 
 // Mongoose schemas and models
 
@@ -28,9 +29,10 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+
 // Routes
 app.get('/', (req, res) => {
-    res.send('<h1>Welcome to the Exercise Tracker API</h1><p>Use the endpoints to manage users and exercises.</p>');
+  res.sendFile(__dirname + '/public/index.html');
 });
 // 1. POST /api/users - create new user
 app.post('/api/users', async (req, res) => {
