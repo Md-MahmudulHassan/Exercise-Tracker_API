@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
 const app = express();
+require('dotenv').config();
+
 
 // Middleware
 app.use(cors());
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB (local or Atlas)
-mongoose.connect('mongodb+srv://mahmudul_hassan:mahmudul_hassan@cluster0.30bz1ac.mongodb.net/exercise-tracker');
+mongoose.connect(process.env.MONGO_URI);
 
 // Mongoose schemas and models
 
